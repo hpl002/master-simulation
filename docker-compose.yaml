@@ -3,4 +3,25 @@ services:
   camunda:
     image: "camunda/camunda-bpm-platform:run-latest"     
     ports:
-      - "8080:8080"
+      - "8080:8080"   
+  neo4j:
+    image: "neo4j:latest"     
+    ports:
+      - "7474:7474"
+      - "7687:7687"  
+    volumes:
+      - $HOME/neo4j/data:/data
+    environment:
+      - NEO4J_AUTH=none
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
