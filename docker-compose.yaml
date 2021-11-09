@@ -12,7 +12,7 @@ services:
     volumes:
       - $HOME/neo4j/data:/data
     environment:
-      - NEO4J_AUTH=none
+      - NEO4J_AUTH=neo4j/demo       
   mongo:
     image: mongo
     restart: always
