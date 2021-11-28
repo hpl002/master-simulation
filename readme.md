@@ -30,3 +30,8 @@ mongo
  - post simple process
  - execute process
  - check output
+
+
+docker-compose persists anon volumes. aka mongo data can retain even though you start a new container
+
+docker-compose down --volumes
